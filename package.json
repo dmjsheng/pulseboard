@@ -1,0 +1,12 @@
+{
+  "name": "pulseboard",
+  "version": "1.0.0",
+  "description": "Original responsive frontend dashboard by Gala.",
+  "author": "Gala",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "node --preserve-symlinks-main server.cjs",
+    "check": "node -e \"new Function(require('fs').readFileSync('script.js','utf8')); console.log('script syntax ok')\""
+  }
+}
