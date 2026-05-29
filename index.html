@@ -6,7 +6,7 @@
     <meta name="author" content="Gala" />
     <meta
       name="description"
-      content="由 Gala 创作的原创前端仪表盘项目，用于展示任务、节奏和作品进展。"
+      content="由 Gala 创作的原创前端仪表盘项目，用于展示任务、日程、节奏和作品进展。"
     />
     <title>PulseBoard | Gala</title>
     <link rel="stylesheet" href="styles.css" />
@@ -62,7 +62,7 @@
         <header class="topbar">
           <div>
             <p class="eyebrow">原创前端项目</p>
-            <h1>把计划、进度和灵感放在一块清爽的工作台上。</h1>
+            <h1>把计划、日程、进度和灵感放在一块清爽的工作台上。</h1>
           </div>
           <div class="toolbar" aria-label="页面工具">
             <button class="icon-button" id="themeToggle" type="button" aria-label="切换主题">
@@ -185,27 +185,69 @@
             </div>
           </article>
 
-          <article class="panel timeline-panel" id="timeline">
-            <div class="panel-header">
+          <article class="panel timeline-panel calendar-panel" id="timeline">
+            <div class="panel-header calendar-header">
               <div>
-                <p class="eyebrow">时间线</p>
-                <h2>今天要完成</h2>
+                <p class="eyebrow">日程管理</p>
+                <h2>月历与事件</h2>
+              </div>
+              <div class="calendar-controls" aria-label="月份切换">
+                <button class="icon-button small" id="prevMonth" type="button" aria-label="上个月">
+                  <svg aria-hidden="true" viewBox="0 0 24 24">
+                    <path d="m15.4 5-1.4-1.4L5.6 12l8.4 8.4 1.4-1.4-7-7 7-7Z" />
+                  </svg>
+                </button>
+                <strong class="month-label" id="calendarMonth"></strong>
+                <button class="icon-button small" id="nextMonth" type="button" aria-label="下个月">
+                  <svg aria-hidden="true" viewBox="0 0 24 24">
+                    <path d="m8.6 19 1.4 1.4 8.4-8.4L10 3.6 8.6 5l7 7-7 7Z" />
+                  </svg>
+                </button>
               </div>
             </div>
-            <ol class="timeline-list">
-              <li>
-                <time>09:30</time>
-                <span>整理组件状态与交互边界</span>
-              </li>
-              <li>
-                <time>13:00</time>
-                <span>优化移动端布局和按钮密度</span>
-              </li>
-              <li>
-                <time>16:20</time>
-                <span>检查 README、作者信息与仓库提交</span>
-              </li>
-            </ol>
+
+            <div class="calendar-layout">
+              <div class="calendar-shell">
+                <div class="weekday-row" aria-hidden="true">
+                  <span>日</span>
+                  <span>一</span>
+                  <span>二</span>
+                  <span>三</span>
+                  <span>四</span>
+                  <span>五</span>
+                  <span>六</span>
+                </div>
+                <div class="calendar-grid" id="calendarGrid" aria-label="月历"></div>
+              </div>
+
+              <div class="event-board" aria-live="polite">
+                <p class="selected-date" id="selectedDateLabel"></p>
+                <form class="event-form" id="eventForm">
+                  <label for="eventTime">时间</label>
+                  <input id="eventTime" type="time" />
+
+                  <label for="eventTitle">事件</label>
+                  <textarea
+                    id="eventTitle"
+                    rows="3"
+                    placeholder="例如：复习 Git 基础命令"
+                  ></textarea>
+
+                  <button class="primary-button full" type="submit">
+                    <svg aria-hidden="true" viewBox="0 0 24 24">
+                      <path d="M11 4h2v7h7v2h-7v7h-2v-7H4v-2h7V4Z" />
+                    </svg>
+                    <span>添加事件</span>
+                  </button>
+                </form>
+
+                <div class="event-list-wrap">
+                  <h3>当天事件</h3>
+                  <ul class="event-list" id="eventList"></ul>
+                  <p class="empty-events" id="emptyEvents">这一天还没有安排。</p>
+                </div>
+              </div>
+            </div>
           </article>
 
           <article class="panel notes-panel" id="notes">
