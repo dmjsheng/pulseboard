@@ -75,6 +75,12 @@ npm run check
 - 改造成 React、Vue 或 Vite 项目
 
 ## 版本记录
+### V1.1 
+
+新增日历日程功能，支持月份切换、点击日期、添加事件、删除事件，
+并使用 localStorage 保存本地事件数据。
+同时优化了日历模块的响应式布局，并更新了 README 和 CHANGELOG。
+
 
 ### V1.0
 
