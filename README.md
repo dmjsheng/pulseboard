@@ -1,26 +1,86 @@
 # PulseBoard
 
-PulseBoard 是一个原创的静态网页前端项目，适合作为个人作品集、GitHub Pages 展示页或前端练习项目。
+**Version:** V1.0
 
-作者：Gala
+**Author:** Gala
 
-## 功能
+**GitHub:** [dmjsheng](https://github.com/dmjsheng)
 
-- 响应式仪表盘布局
-- 项目进度、专注计时、时间线和快速笔记模块
+PulseBoard 是一个原创的响应式网页前端项目，用来展示个人任务、项目进度、专注节奏和快速笔记。项目采用纯 HTML、CSS 和 JavaScript 编写，不依赖前端框架，适合作为第一个 GitHub 前端作品、个人作品集展示页或静态网页模板继续扩展。
+
+## 项目亮点
+
+- 响应式仪表盘界面，适配桌面端和平板、手机端
+- 侧边栏导航、数据卡片、项目进度、时间线和笔记模块
 - 明暗主题切换
-- 无需安装依赖，直接打开 `index.html` 即可运行
+- 专注时长快捷切换
+- 快速添加完成任务计数
+- 使用 `sessionStorage` 保存本次浏览器会话中的笔记
+- 无需安装依赖，打开 `index.html` 即可预览
 
-## 本地预览
+## 技术栈
 
-双击 `index.html`，或在项目目录启动一个静态服务器：
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- Node.js 静态预览服务器
 
-```bash
-python -m http.server 5173
+## 文件结构
+
+```text
+.
+├── index.html      # 页面结构和主要内容
+├── styles.css      # 响应式布局、主题和视觉样式
+├── script.js       # 页面交互逻辑
+├── server.cjs      # 本地静态预览服务器
+├── package.json    # 项目信息和脚本命令
+├── LICENSE         # MIT License
+└── README.md       # 项目介绍
 ```
 
-然后访问 `http://localhost:5173`。
+## 本地运行
 
-## 版权
+方式一：直接打开页面
 
-本项目由 Gala 原创编写。代码使用 MIT License 发布。
+双击 `index.html` 即可在浏览器中查看。
+
+方式二：使用本地静态服务器
+
+```bash
+npm run dev
+```
+
+然后访问：
+
+```text
+http://localhost:5173
+```
+
+## 检查脚本
+
+```bash
+npm run check
+```
+
+该命令会检查 `script.js` 是否存在 JavaScript 语法错误。
+
+## 适合扩展的方向
+
+- 接入真实待办事项数据
+- 添加登录和云端同步
+- 增加 GitHub Pages 在线预览
+- 加入更多图表组件
+- 改造成 React、Vue 或 Vite 项目
+
+## 版本记录
+
+### V1.0
+
+- 完成原创首页和响应式布局
+- 完成明暗主题切换
+- 完成项目进度、专注计时、时间线和快速笔记模块
+- 完成本地预览脚本和项目文档
+
+## 许可证
+
+本项目由 Gala 原创编写，使用 [MIT License](LICENSE) 发布。
