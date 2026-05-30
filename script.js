@@ -12,6 +12,7 @@ const calendarGrid = document.querySelector("#calendarGrid");
 const calendarMonth = document.querySelector("#calendarMonth");
 const prevMonth = document.querySelector("#prevMonth");
 const nextMonth = document.querySelector("#nextMonth");
+const todayButton = document.querySelector("#todayButton");
 const selectedDateLabel = document.querySelector("#selectedDateLabel");
 const eventForm = document.querySelector("#eventForm");
 const eventTime = document.querySelector("#eventTime");
@@ -85,6 +86,14 @@ nextMonth.addEventListener("click", () => {
   renderCalendar();
 });
 
+todayButton.addEventListener("click", () => {
+  const currentDate = new Date();
+
+  visibleMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+  selectedDate = toDateKey(currentDate);
+  renderCalendar();
+});
+
 eventForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -141,7 +150,7 @@ function renderCalendar() {
       button.classList.add("is-selected");
     }
 
-    if (dateKey === toDateKey(today)) {
+    if (dateKey === toDateKey(new Date())) {
       button.classList.add("is-today");
     }
 
