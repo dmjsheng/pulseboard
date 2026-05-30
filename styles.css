@@ -201,6 +201,7 @@ h2 {
 .calendar-controls {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.65rem;
 }
 
@@ -502,6 +503,14 @@ button:focus-visible {
   min-width: 7.6rem;
   text-align: center;
   line-height: 2.25rem;
+}
+
+.calendar-today-button {
+  min-width: auto;
+  min-height: 2.25rem;
+  padding: 0 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 800;
 }
 
 .calendar-layout {
